@@ -46,163 +46,46 @@ import { array } from "prop-types";
 
 const useStyles = makeStyles(styles);
 
-
 export default function Dashboard() {
 
   const classes = useStyles();
-
-  // const numbers = [1,2,3,4,5,6,7,8,9];
 
   return (
     <div>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
-  
-          <Card style={{ width: "20rem" }}>
+          <Card style={{ width: "20rem" }} >
             <CardHeader color="success" stats icon>
                 <CardIcon color="success">
                   <Icon>info_outline</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Hamirul Hafizal</p>
-                <h3 className={classes.cardTitle}>
-                  RM1,000<small>/g</small>
-                </h3>
+                    <p className={classes.cardCategory}>Hamirul Hafizal</p>
+                    <h3 className={classes.cardTitle}>
+                      RM1,000<small>/g</small>
+                    </h3>
               </CardHeader>
-                  <img
-                    className={classes.cardImgTop}
+                  <img  className={classes.cardImgTop}
                     data-src="holder.js/100px180/"
                     alt="100%x180"
                     style={{ height: "300px", width: "100%", display: "block" }}
                     src={avatar}
                     data-holder-rendered="true"
                   />
-                {/* <CardBody>
+                  <CardBody>
                   <h4>Card title</h4>
-                  <p> </p>
+                  <p>test test test </p>
                   <Button color="primary">Go somewhere</Button>
-                </CardBody> */}
+                </CardBody>
                 <center>
                   <CardFooter stats>
                       <div className={classes.stats}>
-                        <Button color="danger">Go somewhere</Button>
+                      Go somewhere
                       </div>
                   </CardFooter>
                 </center>
             </Card>
-              </GridItem>
-              <GridItem xs={12} sm={6} md={3}>
-  
-  <Card style={{ width: "20rem" }}>
-    <CardHeader color="success" stats icon>
-        <CardIcon color="success">
-          <Icon>info_outline</Icon>
-        </CardIcon>
-        <p className={classes.cardCategory}>Hamirul Hafizal</p>
-        <h3 className={classes.cardTitle}>
-          RM1,000<small>/g</small>
-        </h3>
-      </CardHeader>
-          <img
-            className={classes.cardImgTop}
-            data-src="holder.js/100px180/"
-            alt="100%x180"
-            style={{ height: "300px", width: "100%", display: "block" }}
-            src={avatar}
-            data-holder-rendered="true"
-          />
-        {/* <CardBody>
-          <h4>Card title</h4>
-          <p> </p>
-          <Button color="primary">Go somewhere</Button>
-        </CardBody> */}
-        <center>
-          <CardFooter stats>
-              <div className={classes.stats}>
-                <Button color="danger">Go somewhere</Button>
-              </div>
-          </CardFooter>
-        </center>
-    </Card>
-      </GridItem>
-      <GridItem xs={12} sm={6} md={3}>
-  
-          <Card style={{ width: "20rem" }}>
-            <CardHeader color="success" stats icon>
-                <CardIcon color="success">
-                  <Icon>info_outline</Icon>
-                </CardIcon>
-                <p className={classes.cardCategory}>Hamirul Hafizal</p>
-                <h3 className={classes.cardTitle}>
-                  RM1,000<small>/g</small>
-                </h3>
-              </CardHeader>
-                  <img
-                    className={classes.cardImgTop}
-                    data-src="holder.js/100px180/"
-                    alt="100%x180"
-                    style={{ height: "300px", width: "100%", display: "block" }}
-                    src={avatar}
-                    data-holder-rendered="true"
-                  />
-                {/* <CardBody>
-                  <h4>Card title</h4>
-                  <p> </p>
-                  <Button color="primary">Go somewhere</Button>
-                </CardBody> */}
-                <center>
-                  <CardFooter stats>
-                      <div className={classes.stats}>
-                        <Button color="danger">Go somewhere</Button>
-                      </div>
-                  </CardFooter>
-                </center>
-            </Card>
-              </GridItem>
-              <GridItem xs={12} sm={6} md={3}>
-  
-          <Card style={{ width: "20rem" }}>
-            <CardHeader color="success" stats icon>
-                <CardIcon color="success">
-                  <Icon>info_outline</Icon>
-                </CardIcon>
-                <p className={classes.cardCategory}>Hamirul Hafizal</p>
-                <h3 className={classes.cardTitle}>
-                  RM1,000<small>/g</small>
-                </h3>
-              </CardHeader>
-                  <img
-                    className={classes.cardImgTop}
-                    data-src="holder.js/100px180/"
-                    alt="100%x180"
-                    style={{ height: "300px", width: "100%", display: "block" }}
-                    src={avatar}
-                    data-holder-rendered="true"
-                  />
-                {/* <CardBody>
-                  <h4>Card title</h4>
-                  <p> </p>
-                  <Button color="primary">Go somewhere</Button>
-                </CardBody> */}
-                <center>
-                  <CardFooter stats>
-                      <div className={classes.stats}>
-                        <Button color="danger">Go somewhere</Button>
-                      </div>
-                  </CardFooter>
-                </center>
-            </Card>
-              </GridItem>
+        </GridItem>
         </GridContainer>
-{/*      
-        <InfiniteScroll
-    pageStart={0}
-    loadMore={loadFunc}
-    hasMore={true || false}
-    loader={<div className="loader" key={0}>Loading ...</div>}
->
-    {numbers}
-</InfiniteScroll> */}
-
     </div>
   );
 }
