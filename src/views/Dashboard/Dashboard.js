@@ -1,5 +1,5 @@
-import React from "react";
-import {render} from "react-dom";
+import React, { useState } from "react";
+import { render } from "react-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 // react plugin for creating charts
@@ -37,7 +37,7 @@ import { bugs, website, server } from "variables/general.js";
 import {
   dailySalesChart,
   emailsSubscriptionChart,
-  completedTasksChart
+  completedTasksChart,
 } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
@@ -47,45 +47,70 @@ import { array } from "prop-types";
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
-
+  const [items, setItems] = useState(Array.from({ length: 20 }));
   const classes = useStyles();
+  const fetchMoreData = () => {
+    // a fake async api call like which sends
+    // 20 more records in 1.5 secs
+    setTimeout(() => {
+      setItems(items.concat(Array.from({ length: 20 })));
+    }, 1500);
+  };
 
+  const style = {
+    height: 30,
+    border: "1px solid green",
+    margin: 6,
+    padding: 8,
+  };
   return (
     <div>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
-          <Card style={{ width: "20rem" }} >
+          <Card style={{ width: "20rem" }}>
             <CardHeader color="success" stats icon>
-                <CardIcon color="success">
-                  <Icon>info_outline</Icon>
-                </CardIcon>
-                    <p className={classes.cardCategory}>Hamirul Hafizal</p>
-                    <h3 className={classes.cardTitle}>
-                      RM1,000<small>/g</small>
-                    </h3>
-              </CardHeader>
-                  <img  className={classes.cardImgTop}
-                    data-src="holder.js/100px180/"
-                    alt="100%x180"
-                    style={{ height: "300px", width: "100%", display: "block" }}
-                    src={avatar}
-                    data-holder-rendered="true"
-                  />
-                  <CardBody>
-                  <h4>Card title</h4>
-                  <p>test test test </p>
-                  <Button color="primary">Go somewhere</Button>
-                </CardBody>
-                <center>
-                  <CardFooter stats>
-                      <div className={classes.stats}>
-                      Go somewhere
-                      </div>
-                  </CardFooter>
-                </center>
-            </Card>
+              <CardIcon color="success">
+                <Icon>info_outline</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Hamirul Hafizal</p>
+              <h3 className={classes.cardTitle}>
+                RM1,000<small>/g</small>
+              </h3>
+            </CardHeader>
+            <img
+              className={classes.cardImgTop}
+              data-src="holder.js/100px180/"
+              alt="100%x180"
+              style={{ height: "300px", width: "100%", display: "block" }}
+              src={avatar}
+              data-holder-rendered="true"
+            />
+            <CardBody>
+              <h4>Card title</h4>
+              <p>test test test </p>
+              <Button color="primary">Go somewhere</Button>
+            </CardBody>
+            <center>
+              <CardFooter stats>
+                <div className={classes.stats}>Go somewhere</div>
+              </CardFooter>
+            </center>
+          </Card>
+          {console.log({ items })}
+          <InfiniteScroll
+            dataLength={items.length}
+            next={fetchMoreData}
+            hasMore={true}
+            loader={<h4>Loading...</h4>}
+          >
+            {items.map((i, index) => (
+              <div style={style} key={index}>
+                div - #{index}
+              </div>
+            ))}
+          </InfiniteScroll>
         </GridItem>
-        </GridContainer>
+      </GridContainer>
     </div>
   );
 }
