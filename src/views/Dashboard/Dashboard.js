@@ -47,22 +47,30 @@ import { array } from "prop-types";
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
-  const [items, setItems] = useState(Array.from({ length: 20 }));
+
+  const [items, setItems] = useState(Array.from({ length: 10 }));
   const classes = useStyles();
+  
   const fetchMoreData = () => {
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
+ 
+
+    
     setTimeout(() => {
       setItems(items.concat(Array.from({ length: 20 })));
-    }, 1500);
+      
+    }, 4000);
   };
 
+
+
   const style = {
-    height: 30,
-    border: "1px solid green",
+    
     margin: 6,
     padding: 8,
   };
+
   return (
     <div>
       <GridContainer>
@@ -97,20 +105,56 @@ export default function Dashboard() {
             </center>
           </Card>
           {console.log({ items })}
+          
           <InfiniteScroll
+          
             dataLength={items.length}
-            next={fetchMoreData}
+            next={fetchMoreData()}
             hasMore={true}
             loader={<h4>Loading...</h4>}
           >
             {items.map((i, index) => (
-              <div style={style} key={index}>
+
+
+              <div key={index}>
+              {/* <div style={style} key={index}> */}
                 div - #{index}
+
+                <Card style={{ width: "20rem" }}>
+                  <CardHeader color="success" stats icon>
+                    <CardIcon color="success">
+                      <Icon>info_outline</Icon>
+                    </CardIcon>
+                      <p className={classes.cardCategory}>Hamirul Hafizal</p>
+                      <h3 className={classes.cardTitle}>
+                        RM1,000<small>/g</small>
+                      </h3>
+                  </CardHeader>
+                    <img
+                      className={classes.cardImgTop}
+                      data-src="holder.js/100px180/"
+                      alt="100%x180"
+                      style={{ height: "300px", width: "100%", objectFit: "contain", display: "block" }}
+                      src={avatar}
+                      data-holder-rendered="true"
+                    />
+                  <CardBody>
+                    <h4>Card title</h4>
+                    <p>test test test </p>
+                    <Button color="primary">Go somewhere</Button>
+                  </CardBody>
+                  <CardFooter stats>
+                <div className={classes.stats}>Go somewhere</div>
+              </CardFooter>
+              </Card>
+            
               </div>
             ))}
           </InfiniteScroll>
+         
         </GridItem>
       </GridContainer>
-    </div>
-  );
-}
+      
+</div>
+
+);}

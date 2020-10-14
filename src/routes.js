@@ -32,7 +32,7 @@ import TableList from "views/TableList/TableList.js";
 const dashboardRoutes = [
   {
     path: "/marketplace",
-    name: "Marketplace",
+    name: "marketplace",
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,

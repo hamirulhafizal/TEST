@@ -38,9 +38,10 @@ ReactDOM.render(
         path="/dashboard"
         render={(props) => <DashboardRoutes {...props} />}
       /> */}
-      <Route path="/dashboard" component={DashboardPage} />
+      <Route path="/marketplace" render={(props) => <DashboardPage {...props} />} />
 
-      <Redirect from="/" to="/admin/Marketplace" />
+
+      <Redirect from="/" to="/admin/marketplace" />
     </Switch>
   </Router>,
   document.getElementById("root")
